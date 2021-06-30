@@ -10,11 +10,12 @@ namespace Employee_wage
             int isPresent = 1;
             int isAbsent = 0;
             int isFullTime = 1;
+            int isPartTime = 2;
             int wagePerHour = 20;
             int empHours = 0;
             int empWage = 0;
             Random random = new Random();
-            int empAttn = random.Next(0, 2);
+            int empAttn = random.Next(0, 3);
             if (empAttn == 1)
             {
                 Console.WriteLine("Employee is Present");
@@ -25,10 +26,14 @@ namespace Employee_wage
             }
             /*...................................................................
              * Calculating employee wage based on working hours*/
-            int empCheck = random.Next(0, 2);
+            int empCheck = random.Next(0, 3);
             if (empCheck == isFullTime)
             {
                 empHours = 8;
+            }
+            else if (empCheck == isPartTime)
+            {
+                empHours = 4;
             }
             else
             {
