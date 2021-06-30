@@ -4,14 +4,12 @@ namespace Employee_wage
 {
     class Program
     {
+        public const int isFullTime = 1;
+        public const int isPartTime = 2;
+        public const int wagePerHour = 20;
         static void Main(string[] args)
         {
             //Initialising Variables
-            int isPresent = 1;
-            int isAbsent = 0;
-            int isFullTime = 1;
-            int isPartTime = 2;
-            int wagePerHour = 20;
             int empHours = 0;
             int empWage = 0;
             Random random = new Random();
@@ -38,6 +36,24 @@ namespace Employee_wage
             else
             {
                 empHours = 0;
+            }
+            empWage = empHours * wagePerHour;
+            Console.WriteLine("Employee Wage is :" + empWage);
+
+            /*.................................................................
+             * solving wage using switch case statement
+             * .........................................................*/
+            switch(empCheck)
+            {
+                case isFullTime:
+                    empHours = 8;
+                    break;
+                case isPartTime:
+                    empHours = 4;
+                    break;
+                default:
+                    empHours = 0;
+                    break;
             }
             empWage = empHours * wagePerHour;
             Console.WriteLine("Employee Wage is :" + empWage);
