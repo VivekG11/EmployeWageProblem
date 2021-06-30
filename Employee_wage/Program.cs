@@ -18,6 +18,23 @@ namespace Employee_wage
             {
                 Console.WriteLine("Employee is Absent");
             }
+            //...................................................................
+            int isFullTime = 1;
+            int wagePerHour = 20;
+            int empHours = 0;
+            int empWage = 0;
+            Random random = new Random();
+            int empCheck = random.Next(0, 2);
+            if (empCheck == isFullTime)
+            {
+                empHours = 8;
+            }
+            else
+            {
+                empHours = 0;
+            }
+            empWage = empHours * wagePerHour;
+            Console.WriteLine("Employee Wage is :" + empWage);
         }
     }
 }
