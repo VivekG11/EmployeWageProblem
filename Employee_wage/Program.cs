@@ -8,47 +8,22 @@ namespace Employee_wage
         public const int isPartTime = 2;
         public const int wagePerHour = 20;
         public const int numOfWorkingDays = 13;
+        public const int maxWorkiingHours = 100;
         static void Main(string[] args)
         {
             //Initialising Variables
             int empHours = 0;
+            int totWorkingHours = 0;
             int empWage = 0;
-            int totalWage = 0;
-            for (int day = 0; day < numOfWorkingDays; day++)
+            int totalEmpWage = 0;
+            int totalWorkingDays = 0;
+            
+
+            while(totWorkingHours < maxWorkiingHours && totalWorkingDays < numOfWorkingDays)
             {
+               
                 Random random = new Random();
                 int empCheck = random.Next(0, 3);
-            /*int empAttn = random.Next(0, 3);
-            if (empAttn == 1)
-            {
-                Console.WriteLine("Employee is Present");
-            }
-            else
-            {
-                Console.WriteLine("Employee is Absent");
-            }
-            *...................................................................
-             * Calculating employee wage based on working hours
-            int empCheck = random.Next(0, 3);
-            if (empCheck == isFullTime)
-            {
-                empHours = 8;
-            }
-            else if (empCheck == isPartTime)
-            {
-                empHours = 4;
-            }
-            else
-            {
-                empHours = 0;
-            }
-            empWage = empHours * wagePerHour;
-            Console.WriteLine("Employee Wage is :" + empWage);
-
-            /*.................................................................
-             * solving wage using switch case statement
-             * .........................................................*/
-          
                 switch (empCheck)
                 {
                     case isFullTime:
@@ -61,11 +36,12 @@ namespace Employee_wage
                         empHours = 0;
                         break;
                 }
-                empWage = empHours * wagePerHour;
-                totalWage += empWage;
-                Console.WriteLine("Employee Wage is :" + empWage);
+                totalWorkingDays++;
+                totWorkingHours += empHours;
             }
-            Console.WriteLine("Total wage of employee is : "+ totalWage);
+            Console.WriteLine("working Days :" + totalWorkingDays + " and total working hours are : " + totWorkingHours);
+            totalEmpWage = totWorkingHours * wagePerHour;
+            Console.WriteLine("Total wage of employee is : "+ totalEmpWage);
         }
     }
 }
