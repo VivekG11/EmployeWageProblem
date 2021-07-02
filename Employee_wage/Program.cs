@@ -9,7 +9,7 @@ namespace Employee_wage
         public const int wagePerHour = 20;
         public const int numOfWorkingDays = 13;
         public const int maxWorkiingHours = 100;
-        static void Main(string[] args)
+        public static void ComputeWage()
         {
             //Initialising Variables
             int empHours = 0;
@@ -42,6 +42,11 @@ namespace Employee_wage
             Console.WriteLine("working Days :" + totalWorkingDays + " and total working hours are : " + totWorkingHours);
             totalEmpWage = totWorkingHours * wagePerHour;
             Console.WriteLine("Total wage of employee is : "+ totalEmpWage);
+        }
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Calculating Wage");
+            ComputeWage();
         }
     }
 }
