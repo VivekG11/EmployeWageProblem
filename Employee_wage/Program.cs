@@ -2,14 +2,26 @@
 
 namespace Employee_wage
 {
-    class Program
+    class WageBuilder
     {
+
+        public string companyName;
         public const int isFullTime = 1;
         public const int isPartTime = 2;
-        public const int wagePerHour = 20;
-        public const int numOfWorkingDays = 13;
-        public const int maxWorkiingHours = 100;
-        public static void ComputeWage()
+        public int wagePerHour ;
+        public int numOfWorkingDays;
+        public int maxWorkingHours;
+
+
+
+        public WageBuilder(String companyName , int wagePerHour, int numOfWorkingDays, int maxWorkingHours )
+        {
+            this.companyName = companyName;
+            this. wagePerHour = wagePerHour;
+            this.numOfWorkingDays = numOfWorkingDays;
+            this.maxWorkingHours = maxWorkingHours;
+        }
+        public void ComputeWage()
         {
             //Initialising Variables
             int empHours = 0;
@@ -17,12 +29,13 @@ namespace Employee_wage
             int empWage = 0;
             int totalEmpWage = 0;
             int totalWorkingDays = 0;
-            
 
-            while(totWorkingHours < maxWorkiingHours && totalWorkingDays < numOfWorkingDays)
+
+            Random random = new Random();
+            while (totWorkingHours < maxWorkingHours && totalWorkingDays < numOfWorkingDays)
             {
                
-                Random random = new Random();
+                
                 int empCheck = random.Next(0, 3);
                 switch (empCheck)
                 {
@@ -40,13 +53,15 @@ namespace Employee_wage
                 totWorkingHours += empHours;
             }
             Console.WriteLine("working Days :" + totalWorkingDays + " and total working hours are : " + totWorkingHours);
-            totalEmpWage = totWorkingHours * wagePerHour;
+             totalEmpWage = totWorkingHours * wagePerHour;
             Console.WriteLine("Total wage of employee is : "+ totalEmpWage);
         }
         static void Main(string[] args)
         {
-            Console.WriteLine("Calculating Wage");
-            ComputeWage();
+            WageBuilder accenture = new WageBuilder("Accenture", 50, 22, 130);
+            WageBuilder cognizant = new WageBuilder("Cognizant", 40, 24, 130);
+            accenture.ComputeWage();
+            cognizant.ComputeWage();
         }
     }
 }
