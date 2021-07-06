@@ -36,6 +36,7 @@ namespace Employee_wage
             for (int i = 0; i < numOfCompany; i++)
             {
                 companyEmpWageArray[i].setTotalEmpWage(this.ComputeEmpWage(this.companyEmpWageArray[i]));
+                Console.WriteLine("Total wages for each company ");
                 this.companyEmpWageArray[i].CompanyWage();
             }
         }
