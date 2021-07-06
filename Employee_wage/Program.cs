@@ -10,12 +10,10 @@ namespace Employee_wage
     {
         public static void Main(string[] args)
         {
-            EmpWageBuilder accenture = new EmpWageBuilder("Accenture", 50, 22, 130);
-            EmpWageBuilder cognizant = new EmpWageBuilder("Cognizant", 40, 24, 130);
-            accenture.ComputeWage();
-            accenture.CompanyWiseWage();
-            cognizant.ComputeWage();
-            cognizant.CompanyWiseWage();
+            EmpWageBuilderArray empWageBuilder = new EmpWageBuilderArray();
+            empWageBuilder.addCompanyEmpWage("Trends", 25, 9, 14);
+            empWageBuilder.addCompanyEmpWage("KFC", 20, 8, 15);
+            empWageBuilder.ComputeEmpWage();
         }
     }
     

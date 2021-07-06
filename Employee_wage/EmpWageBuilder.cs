@@ -1,43 +1,50 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace Employee_wage
 {
-    class EmpWageBuilder
+    class EmpWageBuilderArray
     {
-
-
-        public string companyName;
         public const int isFullTime = 1;
         public const int isPartTime = 2;
-        public int wagePerHour;
-        public int numOfWorkingDays;
-        public int maxWorkingHours;
-        public int totalEmpWage;
+         
+        //initialising num of companies and array
+        private int numOfCompany = 0;
+        public CompanyEmpWage[] companyEmpWageArray;
 
-
-        //Initialising variables to compute wage for multiple companies
-        public EmpWageBuilder(String companyName, int wagePerHour, int numOfWorkingDays, int maxWorkingHours)
+        public EmpWageBuilderArray()
         {
-            this.companyName = companyName;
-            this.wagePerHour = wagePerHour;
-            this.numOfWorkingDays = numOfWorkingDays;
-            this.maxWorkingHours = maxWorkingHours;
+            this.companyEmpWageArray = new CompanyEmpWage[5];
         }
-        public void ComputeWage()
+
+        public void addCompanyEmpWage(String companyName, int wagePerHour, int numOfWorkingDays, int maxWorkingHours)
         {
-            //Initialising Variables
-            int empHours = 0;
-            int totWorkingHours = 0;
-            int totalWorkingDays = 0;
+            companyEmpWageArray[this.numOfCompany] = new CompanyEmpWage(companyName, wagePerHour, numOfWorkingDays, maxWorkingHours);
+            numOfCompany++;//adding companies
+        }
 
 
-            Random random = new Random();
-            while (totWorkingHours < maxWorkingHours && totalWorkingDays < numOfWorkingDays)
+        public void ComputeEmpWage()
+        {
+            for (int i = 0; i < numOfCompany; i++)
+            {
+                companyEmpWageArray[i].setTotalEmpWage(this.ComputeEmpWage(this.companyEmpWageArray[i]));
+                this.companyEmpWageArray[i].CompanyWage();
+            }
+        }
+        private int ComputeEmpWage(CompanyEmpWage companyEmpWage)
+        {
+            int empHours = 0, totWorkingHours = 0, totalWorkingDays = 0;
+
+
+            
+            while (totWorkingHours <= companyEmpWage.maxWorkingHours && totalWorkingDays < companyEmpWage.numOfWorkingDays)
             {
 
-
+                Random random = new Random();
                 int empCheck = random.Next(0, 3);
                 switch (empCheck)
                 {
@@ -53,15 +60,10 @@ namespace Employee_wage
                 }
                 totalWorkingDays++;
                 totWorkingHours += empHours;
+                //Console.WriteLine("working Days :"+totalWorkingDays+" Emp Hours :"+empHours);
+                
             }
-            Console.WriteLine("working Days :" + totalWorkingDays + " and total working hours are : " + totWorkingHours);
-            totalEmpWage = totWorkingHours * wagePerHour;
-            Console.WriteLine("Total wage of employee is : "+ totalEmpWage);
-        }
-        public void CompanyWiseWage()
-        {
-            Console.WriteLine("Comapny Name :{0}",companyName);
-            Console.WriteLine("Total Employyee wage of "+companyName+" is"+totalEmpWage);
+            return totWorkingHours * companyEmpWage.wagePerHour;
         }
     }
 }
