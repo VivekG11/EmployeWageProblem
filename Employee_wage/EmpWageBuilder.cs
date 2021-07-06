@@ -5,7 +5,11 @@ using System.Linq;
 using System.Threading.Tasks;
 
 namespace Employee_wage
-{
+{ 
+    public interface IEmployeWage
+    {
+        void addCompanyEmpWage(String companyName, int wagePerHour, int numOfWorkingDays, int maxWorkingHourse);
+    }
     class EmpWageBuilderArray
     {
         public const int isFullTime = 1;
