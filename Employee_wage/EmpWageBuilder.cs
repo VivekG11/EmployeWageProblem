@@ -14,6 +14,7 @@ namespace Employee_wage
         public int wagePerHour;
         public int numOfWorkingDays;
         public int maxWorkingHours;
+        public int totalEmpWage;
 
 
         //Initialising variables to compute wage for multiple companies
@@ -29,8 +30,6 @@ namespace Employee_wage
             //Initialising Variables
             int empHours = 0;
             int totWorkingHours = 0;
-            int empWage = 0;
-            int totalEmpWage = 0;
             int totalWorkingDays = 0;
 
 
@@ -58,6 +57,11 @@ namespace Employee_wage
             Console.WriteLine("working Days :" + totalWorkingDays + " and total working hours are : " + totWorkingHours);
             totalEmpWage = totWorkingHours * wagePerHour;
             Console.WriteLine("Total wage of employee is : "+ totalEmpWage);
+        }
+        public void CompanyWiseWage()
+        {
+            Console.WriteLine("Comapny Name :{0}",companyName);
+            Console.WriteLine("Total Employyee wage of "+companyName+" is"+totalEmpWage);
         }
     }
 }

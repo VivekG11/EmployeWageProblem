@@ -13,7 +13,9 @@ namespace Employee_wage
             EmpWageBuilder accenture = new EmpWageBuilder("Accenture", 50, 22, 130);
             EmpWageBuilder cognizant = new EmpWageBuilder("Cognizant", 40, 24, 130);
             accenture.ComputeWage();
+            accenture.CompanyWiseWage();
             cognizant.ComputeWage();
+            cognizant.CompanyWiseWage();
         }
     }
     
