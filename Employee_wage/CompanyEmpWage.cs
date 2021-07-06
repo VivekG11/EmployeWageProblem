@@ -26,6 +26,7 @@ namespace Employee_wage
         public void CompanyWage()
         {
             Console.WriteLine("Total Employee wage of "+this.companyName + " is :"+this.totalEmpWage);
+            Console.WriteLine("\n");
         }
     }
 }
