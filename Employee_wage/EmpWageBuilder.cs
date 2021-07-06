@@ -19,7 +19,6 @@ namespace Employee_wage
         //initialising num of companies and array
         // private int numOfCompany = 0;
         //public CompanyEmpWage[] companyEmpWageArray;
-
         //public EmpWageBuilderArray()
         //{
         //  this.companyEmpWageArray = new CompanyEmpWage[5];
@@ -69,8 +68,10 @@ namespace Employee_wage
                         empHours = 0;
                         break;
                 }
+                Console.WriteLine("Daily wage :"+(empHours*companyEmpWage.wagePerHour));
                 totalWorkingDays++;
                 totWorkingHours += empHours;
+               // Console.WriteLine("Hours :"+totWorkingHours+"");
                 //Console.WriteLine("working Days :"+totalWorkingDays+" Emp Hours :"+empHours);
                 
             }
